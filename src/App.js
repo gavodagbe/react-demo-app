@@ -3,6 +3,7 @@ import Person from "./components/ui/Person/Person";
 import User from "./components/ui/User/User";
 import React, { Component } from "react";
 import "./App.css";
+import axios from "axios";
 
 class App extends Component {
   state = {
@@ -53,6 +54,16 @@ class App extends Component {
     others: "data",
     isHide: false,
   };
+
+  componentDidMount() {
+    axios
+      .get("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => console.log(response));
+
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((response) => console.log(response.data));
+  }
 
   changeeOrderHandler = () => {
     const [u1, u2, u3, u4, u5, u6] = this.state.users;

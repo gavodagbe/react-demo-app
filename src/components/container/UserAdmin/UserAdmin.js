@@ -1,55 +1,38 @@
 import React, { Component } from "react";
 import UserForm from "./../../ui/UserForm/UserForm";
+import axios from "axios";
 class UserAdmin extends Component {
   state = {
-    users: [
-      {
-        id: "idies",
-        name: "Godwin",
-        age: "15",
-        email: "toto@t.fr",
-        isHide: false,
-      },
-      {
-        id: "idiess",
-        name: "Vivien",
-        age: "15",
-        email: "toto@t.fr",
-        isHide: false,
-      },
-      {
-        id: "12ed",
-        name: "Pierre",
-        age: "15",
-        email: "toto@t.fr",
-        isHide: false,
-      },
-      {
-        id: "52dh",
-        name: "Arnaud",
-        age: "15",
-        email: "toto@t.fr",
-        isHide: false,
-      },
-      {
-        id: "85kdjjkd",
-        name: "Neymar",
-        age: "15",
-        email: "toto@t.fr",
-        isHide: false,
-      },
-      {
-        id: "45sdqfdsq",
-        name: "Messi",
-        age: "15",
-        email: "toto@t.fr",
-        isHide: false,
-      },
-    ],
+    users: [],
     isShowId: false,
     selectedUser: null,
     searchTexte: "",
   };
+
+  componentDidMount() {
+    axios.get("https://jsonplaceholder.typicode.com/users").then((response) => {
+      response.data.forEach((item) => {
+        item.age = 56;
+      });
+
+      //users = response.data;
+      this.setState({ users: response.data });
+    });
+
+    axios
+      .get("https://treaningflutter.firebaseio.com/products.json")
+      .then((response) => {
+        console.log(response);
+        console.log(Object.keys(response.data));
+        const products = Object.keys(response.data).map((key) => {
+          return {
+            ...response.data[key],
+            productId: key,
+          };
+        });
+        console.log(products);
+      });
+  }
 
   searchUserHandler = (e) => {
     console.log("User à rechercher ", e.target.value);
