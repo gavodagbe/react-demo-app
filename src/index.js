@@ -4,7 +4,7 @@ import "./index.css";
 import Navigation from "./components/ui/Navigation/Navigation";
 import { BrowserRouter } from "react-router-dom";
 import { createStore, applyMiddleware, combineReducers } from "redux";
-//import moduleName from './store/reducers';
+import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { Provider } from "react-redux";
 import counterReducer from "./store/reducers/counter";
@@ -14,7 +14,7 @@ const mergeReducer = combineReducers({
   ctr: counterReducer,
   res: resultReducer,
 });
-const store = createStore(mergeReducer, applyMiddleware(logger));
+const store = createStore(mergeReducer, applyMiddleware(logger, thunk));
 
 ReactDOM.render(
   <React.StrictMode>

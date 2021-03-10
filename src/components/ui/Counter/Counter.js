@@ -89,15 +89,21 @@ const mapStateToProps = (state) => {
 
 const mapsDispatchToProps = (dispatch) => {
   return {
-    onIncrementCounter: () => dispatch({ type: actionsTypes.INCREMENT }),
-    onDecrementCounter: () => dispatch({ type: actionsTypes.DECREMENT }),
-    onAddCounter: (value) => dispatch({ type: actionsTypes.ADD, value: value }),
-    onSubstractCounter: (value) =>
-      dispatch({ type: actionsTypes.SUBSTRACT, value: value }),
-    onSaveResult: (value) =>
-      dispatch({ type: actionsTypes.STORE_RESULT, newVal: value }),
-    onDeleteResult: (value) =>
-      dispatch({ type: actionsTypes.DELETE_RESULT, selectedLineId: value }),
+    //onIncrementCounter: () => dispatch({ type: actionsTypes.INCREMENT }),
+    //onDecrementCounter: () => dispatch({ type: actionsTypes.DECREMENT }),
+    //onAddCounter: (value) => dispatch({ type: actionsTypes.ADD, value: value }),
+    /*onSubstractCounter: (value) =>
+      dispatch({ type: actionsTypes.SUBSTRACT, value: value }),*/
+    /*onSaveResult: (value) =>
+      dispatch({ type: actionsTypes.STORE_RESULT, newVal: value }),*/
+    /*onDeleteResult: (value) =>
+      dispatch({ type: actionsTypes.DELETE_RESULT, selectedLineId: value }),*/
+    onIncrementCounter: () => dispatch(actionsTypes.increment()),
+    onDecrementCounter: () => dispatch(actionsTypes.decrement()),
+    onAddCounter: (value) => dispatch(actionsTypes.add(value)),
+    onSubstractCounter: (value) => dispatch(actionsTypes.substract(value)),
+    onSaveResult: (value) => dispatch(actionsTypes.storeResult(value)),
+    onDeleteResult: (value) => dispatch(actionsTypes.deleteResult(value)),
   };
 };
 
