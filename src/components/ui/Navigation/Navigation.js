@@ -4,6 +4,7 @@ import UserAdmin from "./../../container/UserAdmin/UserAdmin";
 import NewPost from "./../Blog/NewPost/NewPost";
 import Posts from "./../Blog/Posts/Posts";
 import FullPost from "./../../ui/Blog/FullPost/FullPost";
+import Counter from "./../Counter/Counter";
 
 const Navigation = (props) => {
   return (
@@ -63,6 +64,15 @@ const Navigation = (props) => {
                   Nouveau post
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  to="/redux"
+                  activeClassName="my-active"
+                >
+                  Redux
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>
@@ -73,6 +83,7 @@ const Navigation = (props) => {
         <Route component={UserAdmin} path="/users" />
         <Route path="/new-post" component={NewPost} />
         <Route path="/posts" component={Posts} />
+        <Route path="/redux" component={Counter} />
         {/*<Route path="/posts/:id" component={FullPost} />*/}
         {/*<Redirect from="/" to="/posts" />*/}
       </Switch>
