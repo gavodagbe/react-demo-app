@@ -27,22 +27,39 @@ const Navigation = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className="nav-link active" to="/">
+                <NavLink
+                  className="nav-link active"
+                  to="/"
+                  exact
+                  activeClassName="my-active"
+                >
                   Acceuil
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/users">
+                <NavLink
+                  className="nav-link"
+                  to="/users"
+                  activeClassName="my-active"
+                >
                   Users
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/posts">
+                <NavLink
+                  className="nav-link"
+                  to="/posts"
+                  activeClassName="my-active"
+                >
                   Posts
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/new-post">
+                <NavLink
+                  className="nav-link"
+                  to="/new-post"
+                  activeClassName="my-active"
+                >
                   Nouveau post
                 </NavLink>
               </li>
