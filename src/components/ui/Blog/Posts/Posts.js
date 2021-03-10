@@ -58,11 +58,11 @@ class Posts extends Component {
     return (
       <div>
         <section className="Posts">{posts}</section>
-        <Route
+        {/*<Route
           path={this.props.match.url + "/:id"}
           exact
           component={FullPost}
-        />
+        />*/}
       </div>
     );
   }

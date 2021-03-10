@@ -82,9 +82,9 @@ const Navigation = (props) => {
         <Route component={App} path="/" exact />
         <Route component={UserAdmin} path="/users" />
         <Route path="/new-post" component={NewPost} />
-        <Route path="/posts" component={Posts} />
+        <Route path="/posts" component={Posts} exact />
         <Route path="/redux" component={Counter} />
-        {/*<Route path="/posts/:id" component={FullPost} />*/}
+        {<Route path="/posts/:id" component={FullPost} />}
         {/*<Redirect from="/" to="/posts" />*/}
       </Switch>
     </div>
