@@ -3,13 +3,18 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import Navigation from "./components/ui/Navigation/Navigation";
 import { BrowserRouter } from "react-router-dom";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 //import moduleName from './store/reducers';
 import logger from "redux-logger";
 import { Provider } from "react-redux";
-import reducer from "./store/reducers/counter";
+import counterReducer from "./store/reducers/counter";
+import resultReducer from "./store/reducers/result";
 
-const store = createStore(reducer, applyMiddleware(logger));
+const mergeReducer = combineReducers({
+  ctr: counterReducer,
+  res: resultReducer,
+});
+const store = createStore(mergeReducer, applyMiddleware(logger));
 
 ReactDOM.render(
   <React.StrictMode>
