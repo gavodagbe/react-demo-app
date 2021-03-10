@@ -1,10 +1,12 @@
 import { Route, NavLink, Switch } from "react-router-dom";
 import App from "./../../../App";
 import UserAdmin from "./../../container/UserAdmin/UserAdmin";
+import UserAdminHooks from "./../../container/UserAdminHooks/UserAdminHooks";
 import NewPost from "./../Blog/NewPost/NewPost";
 import Posts from "./../Blog/Posts/Posts";
 import FullPost from "./../../ui/Blog/FullPost/FullPost";
 import Counter from "./../Counter/Counter";
+import UserDetail from "./../UserDetail/UserDetail";
 
 const Navigation = (props) => {
   return (
@@ -49,6 +51,15 @@ const Navigation = (props) => {
               <li className="nav-item">
                 <NavLink
                   className="nav-link"
+                  to="/users-hooks"
+                  activeClassName="my-active"
+                >
+                  Hooks
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
                   to="/posts"
                   activeClassName="my-active"
                 >
@@ -80,7 +91,10 @@ const Navigation = (props) => {
 
       <Switch>
         <Route component={App} path="/" exact />
+        <Route component={UserAdminHooks} path="/users-hooks" exact />
+        <Route component={UserDetail} path="/users-hooks/:id" />
         <Route component={UserAdmin} path="/users" />
+
         <Route path="/new-post" component={NewPost} />
         <Route path="/posts" component={Posts} exact />
         <Route path="/redux" component={Counter} />
